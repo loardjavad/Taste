@@ -51,6 +51,8 @@ namespace Taste.DataAccess.Data.Initializer
             }, "Admin123*").GetAwaiter().GetResult();
 
             ApplicationUser user = _db.ApplicationUsers.Where(e => e.Email == "javad.farmhc@gmail.com").FirstOrDefault();
+            
+            _userManager.AddToRoleAsync(user, SD.ManagerRole);
         }
     }
 }
